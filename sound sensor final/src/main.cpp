@@ -16,20 +16,16 @@
 const int ANALOG_PIN  = A0; 
 const int LedRed   = 4;
 
-const int LedGreen2    = 3 ;  
+const int LedGreen2    = 3 ; 
  
-const int MS_DELAI    = 40;
-
-// Variable pour stocker la lecture analog de capteur de Son 
 int AnalogValue       = 0; 
 
-void setup() {
-  // Configuration 
+void setup() { 
 
   Serial.begin(9600);
 
-  wifiConnect();        //Branchement au réseau WIFI
-  MQTTConnect();       //Branchement au broker MQTT
+  wifiConnect();       
+  MQTTConnect();       
 
   pinMode(ANALOG_PIN, INPUT); 
   pinMode(LedGreen2, OUTPUT);
@@ -63,5 +59,5 @@ void loop() {
   appendPayload("Intensite de Son", AnalogValue);
   sendPayload();  
 
-  delay(MS_DELAI);
+  delay(40);
 }
